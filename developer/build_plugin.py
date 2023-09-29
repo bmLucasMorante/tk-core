@@ -239,7 +239,6 @@ def _process_configuration(
                 with open(shotgun_yaml_path, "w") as pf:
                     pf.write("# Workaround for tk-core bootstrap\nhost: unspecified")
     else:
-
         # if the descriptor in the config contains a version number
         # we will go into a fixed update mode.
         using_latest_config = is_descriptor_version_missing(base_config_uri_dict)
@@ -341,15 +340,12 @@ def _bake_manifest(manifest_data, config_uri, core_descriptor, plugin_root):
     params_path = os.path.join(full_module_path, "manifest.py")
 
     try:
-
         with open(params_path, "wt") as fh:
-
             fh.write("# this file was auto generated.\n\n\n")
 
             fh.write('base_configuration="%s"\n' % config_uri)
 
-            for (parameter, value) in manifest_data.items():
-
+            for parameter, value in manifest_data.items():
                 if parameter == "base_configuration":
                     continue
 
@@ -833,7 +829,6 @@ http://developer.shotgridsoftware.com/tk-core/descriptor
 
 
 if __name__ == "__main__":
-
     # set up std toolkit logging to file
     LogManager().initialize_base_file_handler("build_plugin")
 

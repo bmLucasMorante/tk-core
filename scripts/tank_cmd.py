@@ -217,7 +217,6 @@ class AltCustomFormatter(logging.Formatter):
         return self._num_errors
 
     def format(self, record):
-
         if record.levelno > logging.WARNING:
             self._num_errors += 1
 
@@ -494,8 +493,7 @@ def _write_shotgun_cache(tk, entity_type, cache_file_name):
 
     # extract actions into cache file
     res = []
-    for (cmd_name, cmd_params) in engine_commands.items():
-
+    for cmd_name, cmd_params in engine_commands.items():
         # some apps provide a special deny_platforms entry
         if "deny_platforms" in cmd_params["properties"]:
             # setting can be Linux, Windows or Mac
@@ -813,7 +811,6 @@ def _shotgun_run_action(
         )
 
     elif action_name == "__core_info":
-
         code_css_block = "display: block; padding: 0.5em 1em; border: 1px solid #bebab0; background: #faf8f0;"
 
         # create an upgrader instance that we can query if the install is up to date
@@ -849,7 +846,6 @@ def _shotgun_run_action(
             )
 
         elif status == TankCoreUpdater.UPDATE_POSSIBLE:
-
             (summary, url) = installer.get_release_notes()
 
             logger.info(
@@ -879,7 +875,6 @@ def _shotgun_run_action(
             raise TankError("Unknown Upgrade state!")
 
     elif action_name == "__upgrade_check":
-
         # special built in command that simply tells the user to run the tank command
 
         code_css_block = "display: block; padding: 0.5em 1em; border: 1px solid #bebab0; background: #faf8f0;"
@@ -1149,7 +1144,6 @@ def _resolve_shotgun_entity(entity_type, entity_search_token, constrain_by_proje
         logger.info("More than one item matching your input:")
         logger.info("")
         for x in entities:
-
             chunks = []
 
             chunks.append(" [@%d]" % x["id"])
@@ -1377,7 +1371,6 @@ def run_engine_cmd(pipeline_config_root, context_items, command, using_cwd, args
 
         # work out the project prefix logic
         if ":" in entity_search_token:
-
             # we have an expression on the form tank EntityType project_name:name_expression
             # this is not valid for non-studio commands because these are already project scoped
             if not studio_command_mode:
@@ -1660,7 +1653,6 @@ def _extract_credentials(cmd_line):
 
 
 if __name__ == "__main__":
-
     # set up std toolkit logging to file
     LogManager().initialize_base_file_handler(command_constants.SHELL_ENGINE)
 
@@ -1734,7 +1726,6 @@ if __name__ == "__main__":
 
     exit_code = 1
     try:
-
         cmd_line, credentials = _extract_credentials(cmd_line)
 
         if len(cmd_line) > 0 and cmd_line[0].startswith("shotgun_"):

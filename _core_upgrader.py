@@ -126,7 +126,6 @@ def _copy_folder(log, src, dst):
 
     names = os.listdir(src)
     for name in names:
-
         srcname = os.path.join(src, name)
         dstname = os.path.join(dst, name)
 
@@ -326,7 +325,6 @@ def upgrade_tank(sgtk_install_root, log):
 
 #######################################################################
 if __name__ == "__main__":
-
     desc = """
     This is a system script used by the upgrade process.
 
