@@ -49,9 +49,9 @@ repos:
       # Same comment as the end-of-file-fixer
       exclude: "scripts\/tank_cmd.bat|setup\/root_binaries\/tank.bat"
   # Leave black at the bottom so all touchups are done before it is run.
-  - repo: https://github.com/ambv/black
-    rev: 22.3.0
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 23.9.1
     hooks:
     - id: black
-      language_version: python3
+      language_version: python3.10
       exclude: "tests|python\/tank"
